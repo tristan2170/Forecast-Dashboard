@@ -1,5 +1,15 @@
 * {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
+
+body {
+    font-family: Verdana, sans-serif;
+    }
+
+.date, .time {
+    text-align: left;
+    bottom: 8px;
+    top: 100px;
+    
+}
 
 .slide {
     display: none;
@@ -8,9 +18,13 @@ body {font-family: Verdana, sans-serif;}
 
 /* Slideshow container */
 .slideshow-container {
+    width: 100%;
     max-width: 1000px;
-    position: relative;
     margin: auto;
+    position: relative;
+    left: 0;
+    height: 70%;
+    top: 100px;
 }
 .fade {
     animation-name: fade;
@@ -24,10 +38,10 @@ body {font-family: Verdana, sans-serif;}
 
 .slide-text{
     color: black;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
+    font-size: 30px;
     bottom: 8px;
-    width: 100%;
     text-align: center;
+    top: 100px;
 }
+
+

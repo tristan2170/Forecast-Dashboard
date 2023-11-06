@@ -1,84 +1,216 @@
-const http = require("http");
-const https = require("https");
-const config = require("js/config.js")
-const api_key = config.API_KEY
+import {API_KEY} from '/js/config.js'
+const api_key = API_KEY
 
-// Weather Location 1 (Flushing)
-func1();
+var i = Math.floor(Math.random() * 50);
+var j = Math.floor(Math.random() * 50);
+var k = Math.floor(Math.random() * 50);
+
+var city_codes = [];
+var idx = 0;
+
+// Date
+const now = new Date();
+const day = now.getDate();
+const month = now.getMonth();
+const options = {weekday: 'long'};
+const dayOfWeek = now.toLocaleDateString(undefined, options);
+const year = now.getFullYear();
+
+const currDate = `${dayOfWeek}, ${day}/${month + 1}/${year}`;
+document.getElementsByClassName("date")[0].innerHTML = currDate;
+
+// Time
+const options2 = { hour12: true, hour: '2-digit', minute: '2-digit' };
+const locale = 'en-US';  // Adjust this based on the desired locale
+const localizedTime = now.toLocaleTimeString(locale, options2);
+document.getElementsByClassName("time")[0].innerHTML = localizedTime;
+
+
+function updateKeys(){
+    i = Math.floor(Math.random() * 50);
+    j = Math.floor(Math.random() * 50);
+    k = Math.floor(Math.random() * 50);
+}
+
+const tenMinsInMillis = 10 * 60 * 1000;
+setInterval(updateKeys, tenMinsInMillis); 
+
+
+
+// Fetch location codes 
+const url0 = new URL('http://dataservice.accuweather.com/locations/v1/topcities/50?apikey='+api_key);
+fetch(url0)
+.then(response => {
+    if (!response.ok)
+    {
+        throw new Error('Network Response Error');
+    }
+
+    return response.json();
+})
+.then(data => {
+
+    data.forEach((item) => {
+        console.log(item.Key);
+        city_codes[idx] = item.Key;
+        console.log(city_codes[idx]);
+        idx+=1;
+        
+      });
+
+    func1();
+})
+
+
+
+
+// Weather Location 1      
 function func1(){
-    const url = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/329592?apikey=${api_key}`);
-    http.get(url, function(accuweather_res){
+        console.log(i);
+        console.log(city_codes[i]);
+        // Fetches the location data for name, state, country
+        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[i]}?apikey=`+api_key);
+        fetch(url1)
+        .then(response => {
+            if (!response.ok){
+                throw new Error('Network Response Error');
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            let town = data.LocalizedName;
+            let state = data.AdministrativeArea.LocalizedName;
+            let country = data.Country.LocalizedName;
+
+            let res = town + ', ' + state + ', ' + country;
+            document.getElementById("location1").innerHTML = res;
+        })
         
-        let data = "", json_data;
-        accuweather_res.on('data', (stream) => {
-            data += stream;
+
+        // Fetch Request for weather info
+        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[i]}?apikey=`+api_key);
+        fetch(url2)
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network Response Error');
+        }
+            return response.json(); // Parse the response as JSON
+        })
+        .then(data => {
+            
+            let headline = data.Headline.Text;
+            let min = data.DailyForecasts[0].Temperature.Minimum.Value;
+            let max = data.DailyForecasts[0].Temperature.Maximum.Value;
+        
+            document.getElementById("headline1").innerHTML = headline;
+            document.getElementById("min1").innerHTML = `Low: ${min}` + '°';
+            document.getElementById("max1").innerHTML = `High: ${max}` + '°';
+        })
+        .catch(error => {
+        console.error('Fetch Operation Error:', error);
         });
     
-        accuweather_res.on('end', function() {
-            json_data = JSON.parse(data);
-            let date = JSON.stringify(json_data.Headline.EffectiveDate);
-            let headline = JSON.stringify(json_data.Headline.Text);
-            let min = JSON.stringify(json_data.DailyForecasts[0].Temperature.Minimum.Value);
-            let max = JSON.stringify(json_data.DailyForecasts[0].Temperature.Maximum.Value);
-        
-            document.getElementById("date1").value = date;
-            document.getElementById("headline1").value = headline;
-            document.getElementById("min1").value = min;
-            document.getElementById("max1").value = max;
-        });          
-    });  
-    func2();
-}// End of func1 
+        func2();
+}
 
 
-// Weather Location 2 (Lake Success)
+// Weather Location 2 
 function func2() {
-    const url = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/2126230?apikey=${api_key}`);
-    https.get(url, function(advice_res){
-
-        let data = "", json_data;
-        advice_res.on('data', (stream) => {
-            data += stream;
-        });
     
-        advice_res.on('end', function() {
-            json_data = JSON.parse(data);
-            let date = JSON.stringify(json_data.Headline.EffectiveDate);
-            let headline = JSON.stringify(json_data.Headline.Text);
-            let min = JSON.stringify(json_data.DailyForecasts[0].Temperature.Minimum.Value);
-            let max = JSON.stringify(json_data.DailyForecasts[0].Temperature.Maximum.Value);
+        // Fetches the location data for name, state, country
+        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[j]}?apikey=`+api_key);
+        fetch(url1)
+        .then(response => {
+            if (!response.ok){
+                throw new Error('Network Response Error');
+            }
 
-            document.getElementById("date2").value = date;
-            document.getElementById("headline2").value = headline;
-            document.getElementById("min2").value = min;
-            document.getElementById("max2").value = max;
+            return response.json();
+        })
+        .then(data => {
+            let town = data.LocalizedName;
+            let state = data.AdministrativeArea.LocalizedName;
+            let country = data.Country.LocalizedName;
 
-        });  
-    });
-    func3();
-}//End of func2 
+            let res = town + ', ' + state + ', ' + country;
+            document.getElementById("location2").innerHTML = res;
+        })
 
 
-// Weather Location 3 (Bayside)
+
+        // Fetch request for weather info
+        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[j]}?apikey=`+api_key);
+        fetch(url2)
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network Response Error');
+        }
+            return response.json(); // Parse the response as JSON
+        })
+        .then(data => {
+            
+            let headline = data.Headline.Text;
+            let min = data.DailyForecasts[0].Temperature.Minimum.Value;
+            let max = data.DailyForecasts[0].Temperature.Maximum.Value;
+            
+            document.getElementById("headline2").innerHTML = headline;
+            document.getElementById("min2").innerHTML = `Low: ${min}`+ '°';
+            document.getElementById("max2").innerHTML = `High: ${max}` + '°';
+        })
+        .catch(error => {
+        console.error('Fetch Operation Error:', error);
+        });
+
+        func3();
+
+} 
+
+
+// Weather Location 3 
 function func3(){
-    const url = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/329570?apikey=${api_key}`);
-    http.get(url, function(accuweather_res){
-        
-        let data = "", json_data;
-        accuweather_res.on('data', (stream) => {
-            data += stream;
-        });
     
-        accuweather_res.on('end', function() {
-            let date = JSON.stringify(json_data.Headline.EffectiveDate);
-            let headline = JSON.stringify(json_data.Headline.Text);
-            let min = JSON.stringify(json_data.DailyForecasts[0].Temperature.Minimum.Value);
-            let max = JSON.stringify(json_data.DailyForecasts[0].Temperature.Maximum.Value);
+        // Fetches the location data for name, state, country
+        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[k]}?apikey=`+api_key);
+        fetch(url1)
+        .then(response => {
+            if (!response.ok){
+                throw new Error('Network Response Error');
+            }
 
-            document.getElementById("date3").value = date;
-            document.getElementById("headline3").value = headline;
-            document.getElementById("min3").value = min;
-            document.getElementById("max3").value = max;
-        });          
-    });  
-}// End of func3
+            return response.json();
+        })
+        .then(data => {
+            let town = data.LocalizedName;
+            let state = data.AdministrativeArea.LocalizedName;
+            let country = data.Country.LocalizedName;
+
+            let res = town + ', ' + state + ', ' + country;
+            document.getElementById("location3").innerHTML = res;
+        })
+
+ 
+        // Fetch request for weather info
+        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[k]}?apikey=`+api_key);
+        fetch(url2)
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network Response Error');
+        }
+            return response.json(); 
+        })
+        .then(data => {
+            
+            let headline = data.Headline.Text;
+            let min = data.DailyForecasts[0].Temperature.Minimum.Value;
+            let max = data.DailyForecasts[0].Temperature.Maximum.Value;
+            
+            document.getElementById("headline3").innerHTML = headline;
+            document.getElementById("min3").innerHTML = `Low: ${min}` + '°';
+            document.getElementById("max3").innerHTML = `High: ${max}` + '°';
+        })
+        .catch(error => {   
+        console.error('Fetch Operation Error:', error);
+        });
+
+}
