@@ -5,27 +5,113 @@ body {
     }
 
 .date, .time {
-    text-align: left;
+    text-align: center;
     bottom: 8px;
     top: 100px;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
     
 }
+
+/* Left sidebar menu */
+.left-sidebar {
+    height: 100%; 
+    width: 160px; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white;
+    overflow-x: hidden; /* Disables horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .left-sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+  }
+
+  .left-sidebar a:hover {
+    color: #000080;
+  }
+
+
+
+  /* Right sidebar menu */
+.right-sidebar {
+    height: 100%; 
+    width: 160px; 
+    position: fixed; 
+    z-index: 1;
+    top: 0; 
+    right: 0;
+    background-color: white;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .right-sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+  }
+
+  .right-sidebar a:hover {
+    color: #000080;
+  }
+  
+  
+
 
 .slide {
     display: none;
     vertical-align: middle;
+    border-radius: 15px;
+    padding: 20px;
 }
+
+.flex-container{
+    display: flex;
+    height: 100%;
+}
+
+
+.main-mid{
+    background-image: linear-gradient(to bottom, #FFFFFF, #E6E6FA);
+    height: 100vh; 
+    
+}
+
 
 /* Slideshow container */
 .slideshow-container {
-    width: 100%;
-    max-width: 1000px;
+    /* width: 100%; */
+    max-width: 500px;
     margin: auto;
     position: relative;
     left: 0;
-    height: 70%;
-    top: 100px;
+    /* height: 70%; */
+    top: 100px; 
+    background-color: #FFFFFF;
 }
+
+
+.slide-text{
+    color: black;
+    font-size: 20px;
+    bottom: 8px; 
+   
+    text-align: center;
+    top: 100px; 
+}
+
+
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
@@ -36,12 +122,5 @@ body {
     to {opacity: 1}
     }
 
-.slide-text{
-    color: black;
-    font-size: 30px;
-    bottom: 8px;
-    text-align: center;
-    top: 100px;
-}
 
 

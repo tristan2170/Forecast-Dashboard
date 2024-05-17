@@ -16,7 +16,7 @@ const options = {weekday: 'long'};
 const dayOfWeek = now.toLocaleDateString(undefined, options);
 const year = now.getFullYear();
 
-const currDate = `${dayOfWeek}, ${day}/${month + 1}/${year}`;
+const currDate = `${dayOfWeek}, ${month + 1}/${day}/${year}`;
 document.getElementsByClassName("date")[0].innerHTML = currDate;
 
 // Time
@@ -32,8 +32,8 @@ function updateKeys(){
     k = Math.floor(Math.random() * 50);
 }
 
-const tenMinsInMillis = 10 * 60 * 1000;
-setInterval(updateKeys, tenMinsInMillis); 
+const tweny_mins = 20 * 60 * 1000;
+setInterval(updateKeys, tweny_mins); 
 
 
 
@@ -51,9 +51,8 @@ fetch(url0)
 .then(data => {
 
     data.forEach((item) => {
-        console.log(item.Key);
+        
         city_codes[idx] = item.Key;
-        console.log(city_codes[idx]);
         idx+=1;
         
       });
@@ -104,8 +103,8 @@ function func1(){
             let max = data.DailyForecasts[0].Temperature.Maximum.Value;
         
             document.getElementById("headline1").innerHTML = headline;
-            document.getElementById("min1").innerHTML = `Low: ${min}` + '°';
-            document.getElementById("max1").innerHTML = `High: ${max}` + '°';
+            document.getElementById("min1").innerHTML = `Low ${min}` + '°';
+            document.getElementById("max1").innerHTML = `High ${max}` + '°';
         })
         .catch(error => {
         console.error('Fetch Operation Error:', error);
@@ -155,8 +154,8 @@ function func2() {
             let max = data.DailyForecasts[0].Temperature.Maximum.Value;
             
             document.getElementById("headline2").innerHTML = headline;
-            document.getElementById("min2").innerHTML = `Low: ${min}`+ '°';
-            document.getElementById("max2").innerHTML = `High: ${max}` + '°';
+            document.getElementById("min2").innerHTML = `Low ${min}`+ '°';
+            document.getElementById("max2").innerHTML = `High ${max}` + '°';
         })
         .catch(error => {
         console.error('Fetch Operation Error:', error);
@@ -206,8 +205,8 @@ function func3(){
             let max = data.DailyForecasts[0].Temperature.Maximum.Value;
             
             document.getElementById("headline3").innerHTML = headline;
-            document.getElementById("min3").innerHTML = `Low: ${min}` + '°';
-            document.getElementById("max3").innerHTML = `High: ${max}` + '°';
+            document.getElementById("min3").innerHTML = `Low ${min}` + '°';
+            document.getElementById("max3").innerHTML = `High ${max}` + '°';
         })
         .catch(error => {   
         console.error('Fetch Operation Error:', error);
