@@ -1,5 +1,5 @@
-import {API_KEY} from '/js/config.js'
-const api_key = API_KEY
+import {weather_api_key} from '/js/config.js'
+const w_key = weather_api_key
 
 var i = Math.floor(Math.random() * 50);
 var j = Math.floor(Math.random() * 50);
@@ -32,13 +32,13 @@ function updateKeys(){
     k = Math.floor(Math.random() * 50);
 }
 
-const tweny_mins = 20 * 60 * 1000;
-setInterval(updateKeys, tweny_mins); 
+const twenty_mins = 20 * 60 * 1000;
+setInterval(updateKeys, twenty_mins); 
 
 
 
 // Fetch location codes 
-const url0 = new URL('http://dataservice.accuweather.com/locations/v1/topcities/50?apikey='+api_key);
+const url0 = new URL('http://dataservice.accuweather.com/locations/v1/topcities/50?apikey='+w_key);
 fetch(url0)
 .then(response => {
     if (!response.ok)
@@ -65,10 +65,9 @@ fetch(url0)
 
 // Weather Location 1      
 function func1(){
-        console.log(i);
-        console.log(city_codes[i]);
+    
         // Fetches the location data for name, state, country
-        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[i]}?apikey=`+api_key);
+        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[i]}?apikey=`+w_key);
         fetch(url1)
         .then(response => {
             if (!response.ok){
@@ -88,7 +87,7 @@ function func1(){
         
 
         // Fetch Request for weather info
-        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[i]}?apikey=`+api_key);
+        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[i]}?apikey=`+w_key);
         fetch(url2)
         .then(response => {
         if (!response.ok) {
@@ -114,11 +113,12 @@ function func1(){
 }
 
 
+
 // Weather Location 2 
 function func2() {
     
         // Fetches the location data for name, state, country
-        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[j]}?apikey=`+api_key);
+        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[j]}?apikey=`+w_key);
         fetch(url1)
         .then(response => {
             if (!response.ok){
@@ -139,7 +139,7 @@ function func2() {
 
 
         // Fetch request for weather info
-        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[j]}?apikey=`+api_key);
+        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[j]}?apikey=`+w_key);
         fetch(url2)
         .then(response => {
         if (!response.ok) {
@@ -170,7 +170,7 @@ function func2() {
 function func3(){
     
         // Fetches the location data for name, state, country
-        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[k]}?apikey=`+api_key);
+        const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[k]}?apikey=`+w_key);
         fetch(url1)
         .then(response => {
             if (!response.ok){
@@ -190,7 +190,7 @@ function func3(){
 
  
         // Fetch request for weather info
-        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[k]}?apikey=`+api_key);
+        const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[k]}?apikey=`+w_key);
         fetch(url2)
         .then(response => {
         if (!response.ok) {
