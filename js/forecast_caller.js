@@ -8,32 +8,28 @@ var k = Math.floor(Math.random() * 50);
 var city_codes = [];
 var idx = 0;
 
-// Date
-const now = new Date();
-const day = now.getDate();
-const month = now.getMonth();
-const options = {weekday: 'long'};
-const dayOfWeek = now.toLocaleDateString(undefined, options);
-const year = now.getFullYear();
 
-const currDate = `${dayOfWeek}, ${month + 1}/${day}/${year}`;
-document.getElementsByClassName("date")[0].innerHTML = currDate;
+function update_time_date()
+{
+    // Date
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth();
+    const options = {weekday: 'long'};
+    const dayOfWeek = now.toLocaleDateString(undefined, options);
+    const year = now.getFullYear();
 
-// Time
-const options2 = { hour12: true, hour: '2-digit', minute: '2-digit' };
-const locale = 'en-US';  // Adjust this based on the desired locale
-const localizedTime = now.toLocaleTimeString(locale, options2);
-document.getElementsByClassName("time")[0].innerHTML = localizedTime;
+    const currDate = `${dayOfWeek}, ${month + 1}/${day}/${year}`;
+    document.getElementsByClassName("date")[0].innerHTML = currDate;
 
-
-function updateKeys(){
-    i = Math.floor(Math.random() * 50);
-    j = Math.floor(Math.random() * 50);
-    k = Math.floor(Math.random() * 50);
+    // Time
+    const options2 = { hour12: true, hour: '2-digit', minute: '2-digit' };
+    const locale = 'en-US';  // Adjust this based on the desired locale
+    const localizedTime = now.toLocaleTimeString(locale, options2);
+    document.getElementsByClassName("time")[0].innerHTML = localizedTime;
 }
-
-const twenty_mins = 20 * 60 * 1000;
-setInterval(updateKeys, twenty_mins); 
+update_time_date(); // initial calling to set the values
+setInterval(update_time_date, 1000); // time updates every second
 
 
 
@@ -57,15 +53,24 @@ fetch(url0)
         
       });
 
-    func1();
+    // Initial calls to set the weather values
+    fetch_weather1();
+    fetch_weather2();
+    fetch_weather3();
+
 })
 
 
+function update_keys()
+{
+    i = Math.floor(Math.random() * 50);
+    j = Math.floor(Math.random() * 50);
+    k = Math.floor(Math.random() * 50);
+}
 
-
-// Weather Location 1      
-function func1(){
-    
+function fetch_weather1()
+{
+        
         // Fetches the location data for name, state, country
         const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[i]}?apikey=`+w_key);
         fetch(url1)
@@ -108,14 +113,11 @@ function func1(){
         .catch(error => {
         console.error('Fetch Operation Error:', error);
         });
-    
-        func2();
 }
 
 
-
 // Weather Location 2 
-function func2() {
+function fetch_weather2() {
     
         // Fetches the location data for name, state, country
         const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[j]}?apikey=`+w_key);
@@ -161,13 +163,11 @@ function func2() {
         console.error('Fetch Operation Error:', error);
         });
 
-        func3();
-
 } 
 
 
 // Weather Location 3 
-function func3(){
+function fetch_weather3(){
     
         // Fetches the location data for name, state, country
         const url1 = new URL(`http://dataservice.accuweather.com/locations/v1/${city_codes[k]}?apikey=`+w_key);
@@ -180,6 +180,7 @@ function func3(){
             return response.json();
         })
         .then(data => {
+
             let town = data.LocalizedName;
             let state = data.AdministrativeArea.LocalizedName;
             let country = data.Country.LocalizedName;
@@ -188,7 +189,7 @@ function func3(){
             document.getElementById("location3").innerHTML = res;
         })
 
- 
+
         // Fetch request for weather info
         const url2 = new URL(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${city_codes[k]}?apikey=`+w_key);
         fetch(url2)
@@ -213,3 +214,12 @@ function func3(){
         });
 
 }
+
+// Interval set to one minute for testing purposes
+setInterval(function(){
+    update_keys();
+    fetch_weather1();
+    fetch_weather2();
+    fetch_weather3();
+}, 60000); 
+

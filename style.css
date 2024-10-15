@@ -110,7 +110,7 @@ body {
   background-color: #FFFFFF;
 }
 
-.slide {
+.fin_slide, .wthr_slide {
   display: none;
   vertical-align: middle;
   border-radius: 15px;
