@@ -215,11 +215,11 @@ function fetch_weather3(){
 
 }
 
-// Interval set to one minute for testing purposes
+// Interval set to 30 mins for testing purposes
 setInterval(function(){
     update_keys();
     fetch_weather1();
     fetch_weather2();
     fetch_weather3();
-}, 60000); 
+}, 1800000); 
 

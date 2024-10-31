@@ -14,5 +14,5 @@ function showSlides() {
     if (slideIndex > finance_slides.length) {slideIndex = 1}    
       finance_slides[slideIndex-1].style.display = "block";  
       weather_slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 12000); 
-}
+  setTimeout(showSlides, 600000); // ten mins for testing 
+} 

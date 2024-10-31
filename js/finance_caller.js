@@ -35,26 +35,43 @@ fetch(url)
 
     function set_elements()
     {
-        document.getElementById("title1").innerHTML = news_list[i][0]
-        document.getElementById("source1").innerHTML = news_list[i][1]
-        document.getElementById("url1").innerHTML = news_list[i][2]
+        document.getElementById("title1").innerHTML = news_list[i][0];
+        document.getElementById("source1").innerHTML = news_list[i][1];
+        document.getElementById("url1").innerHTML = "Read Full Story Here";
 
-        document.getElementById("title2").innerHTML = news_list[j][0]
-        document.getElementById("source2").innerHTML = news_list[j][1]
-        document.getElementById("url2").innerHTML = news_list[j][2]
+        // Sets the hyperlink location to the news article
+        document.getElementById("url1").href = news_list[i][2];
+        // Sets the article to open in new tab
+        document.getElementById("url1").target = "_blank";
+        
+        
+        document.getElementById("title2").innerHTML = news_list[j][0];
+        document.getElementById("source2").innerHTML = news_list[j][1];
+        document.getElementById("url2").innerHTML = "Read Full Story Here";
 
-        document.getElementById("title3").innerHTML = news_list[k][0]
-        document.getElementById("source3").innerHTML = news_list[k][1]
-        document.getElementById("url3").innerHTML = news_list[k][2]
+        // Sets the hyperlink location to the news article
+        document.getElementById("url2").href = news_list[j][2];
+        // Sets the article to open in new tab
+        document.getElementById("url2").target = "_blank";
+
+
+        document.getElementById("title3").innerHTML = news_list[k][0];
+        document.getElementById("source3").innerHTML = news_list[k][1];
+        document.getElementById("url3").innerHTML = "Read Full Story Here";
+
+        // Sets the hyperlink location to the news article
+        document.getElementById("url3").href = news_list[k][2];
+        // Sets the article to open in new tab
+        document.getElementById("url3").target = "_blank";
 
     }
     set_elements(); // initial call to set the values
 
-    // Interval set to one minute for testing purposes
+    // Interval set to 30 mins for testing purposes
     setInterval(function(){
         update_articles();
         set_elements();
-    }, 60000); 
+    }, 1800000); 
     
     
 })

@@ -3,7 +3,7 @@
 body {
     font-family: Verdana, sans-serif;
     overflow-y: hidden;
-    
+    background-image: linear-gradient(to bottom, #E6E6FA, #d3d3d3); 
     }
 
 .date, .time {
@@ -14,77 +14,59 @@ body {
     
 }
 
-/* Left sidebar menu */
-.left-sidebar {
-    height: 100%; 
-    width: 160px; 
-    position: fixed; 
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: white;
-    overflow-x: hidden; /* Disables horizontal scroll */
-    padding-top: 20px;
-  }
-  
-  /* The navigation menu links */
-  .left-sidebar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #818181;
-    display: block;
-  }
-
-  .left-sidebar a:hover {
-    color: #000080;
-  }
-
-
-
-  /* Right sidebar menu */
-.right-sidebar {
-    height: 100%; 
-    width: 160px; 
-    position: fixed; 
-    z-index: 1;
-    top: 0; 
-    right: 0;
-    background-color: white;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-  }
-  
-  /* The navigation menu links */
-  .right-sidebar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #818181;
-    display: block;
-  }
-
-  .right-sidebar a:hover {
-    color: #000080;
-  }
-  
-  
-
 .flex-container{
-    display: flex;
-    height: 100%;
-    min-height: 100%;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  /* min-height: 100%; */
+  flex-direction: column;
+  height: 100vh;
 
 }
 
 
 .main-mid{
-    background-image: linear-gradient(to bottom, #E6E6FA, #d3d3d3); 
-    height: 100%; 
-    background-color:#E6E6FA ;
+  
+  height:100vh; 
+  flex-grow: 1;
+  margin-left: 85px;
+
 }
+
+
+/* Left sidebar menu */
+.left-sidebar {
+    height: 100%; 
+    width: 85px; 
+    position: fixed; 
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #2F539B;
+    overflow-x: hidden; /* Disables horizontal scroll */
+    padding-top: 20px;
+    text-align: center; /*For the icons */
+
+  }
+  
+  /* The navigation menu links */
+  .left-sidebar a {
+    padding: 6px 8px 6px;
+    text-decoration: none;
+    display: block;
+    color: #2F539B;
+    
+    font-size: x-large;
+
+    text-shadow:
+    -1px -1px 0 #fff, /* Top left */
+     1px -1px 0 #fff, /* Top right */
+    -1px  1px 0 #fff, /* Bottom left */
+     1px  1px 0 #fff; /* Bottom right */
+
+  }
+
+  .left-sidebar a:hover {
+    color: #d3d3d3;
+  }
 
 
 /* Slideshow container */
@@ -94,9 +76,10 @@ body {
     margin: auto;
     position: absolute;
     left: 30%;
-    height: 400px;
+    height: 300px;
     top: 200px;
     background-color: #FFFFFF;
+    border-radius: 25px;
 }
 
 .finance-slideshow {
@@ -105,9 +88,10 @@ body {
   margin: auto;
   position: absolute;
   right: 30%;
-  height: 400px;
+  height: 300px;
   top: 200px;
   background-color: #FFFFFF;
+  border-radius: 25px;
 }
 
 .fin_slide, .wthr_slide {
@@ -115,12 +99,13 @@ body {
   vertical-align: middle;
   border-radius: 15px;
   padding: 20px;
+  text-align: center;
 }
 
 
 .slide-text{
     color: black;
-    font-size: 20px;
+    font-size: small;
     bottom: 8px; 
    
     text-align: center;
