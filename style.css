@@ -6,18 +6,11 @@ body {
     background-image: linear-gradient(to bottom, #E6E6FA, #d3d3d3); 
     }
 
-.date, .time {
-    text-align: center;
-    bottom: 8px;
-    top: 100px;
-    font-family:"Trebuchet MS", Helvetica, sans-serif;
-    
-}
 
 .flex-container{
   display: flex;
   /* min-height: 100%; */
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
 
 }
@@ -68,30 +61,90 @@ body {
     color: #d3d3d3;
   }
 
+.date-time{
+    width: 250px;
+    /* max-width: 200px; */
+    margin: auto;
+    position: absolute;
+    left: 10%;
+    height: 300px;
+    top: 20px;
+    background-color: #FFFFFF;
+    border-radius: 25px; 
+    text-align: center;
+    font-family:"Trebuchet MS", Helvetica, sans-serif; 
+}
 
 /* Slideshow container */
 .weather-slideshow {
-    width: 200px;
+    width: 250px;
     /* max-width: 200px; */
     margin: auto;
     position: absolute;
     left: 30%;
     height: 300px;
-    top: 200px;
+    top: 20px;
     background-color: #FFFFFF;
     border-radius: 25px;
 }
 
 .finance-slideshow {
-  width: 200px;
+  width: 250px;
   /* max-width: 200px; */
   margin: auto;
   position: absolute;
-  right: 30%;
-  height: 300px;
-  top: 200px;
+  left: 50%;
+  height: 230px;
+  top: 20px;
   background-color: #FFFFFF;
   border-radius: 25px;
+}
+
+.tmp-1{
+  display: flex;
+  width: 525px;
+  /* max-width: 200px; */
+  bottom: 115px;
+  margin: auto;
+  position: absolute;
+  left: 10%;
+  height: 200px;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+}
+.tmp-2{
+  display: flex;
+  width: 250px;
+  /* max-width: 200px; */
+  bottom: 115px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  height: 275px;
+  background-color: #FFFFFF;
+  border-radius: 25px;  
+}
+
+.tmp-3{
+  top: 20px;
+  left: 70%;
+  width: 250px;
+  margin: auto;
+  position: absolute;
+  height: 57.5px;
+  background-color: #FFFFFF;
+  border-radius: 25px;  
+}
+
+.tmp-4{
+  width: 250px;
+  bottom: 115px;
+  margin: auto;
+  position: absolute;
+  left: 70%;
+  background-color: #FFFFFF;
+  border-radius: 25px;  
+  height: 440px;
 }
 
 .fin_slide, .wthr_slide {
