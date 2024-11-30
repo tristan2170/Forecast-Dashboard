@@ -1,5 +1,5 @@
-import {weather_api_key} from '/js/config.js'
-const w_key = weather_api_key
+import {weather_api_key} from '/js/config.js';
+const w_key = weather_api_key;
 
 var i = Math.floor(Math.random() * 50);
 var j = Math.floor(Math.random() * 50);
