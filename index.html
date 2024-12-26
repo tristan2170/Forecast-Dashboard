@@ -21,12 +21,19 @@
 
     <div class="flex-container">
         <div class="left-sidebar">
-            <a href="#"><i class="fa-solid fa-user"></i></a>
-            <a href="#"><i class="fa-solid fa-house"></i></a>
-            <a href="#"><i class="fa-solid fa-message"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
-            <a href="#"><i class="fa-solid fa-address-book"></i></a>
+            <div class="sidebar-icons">
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <a href="#"><i class="fa-solid fa-house"></i></a>
+                <a href="#"><i class="fa-solid fa-message"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#"><i class="fa-solid fa-address-book"></i></a>
+            </div>
+            <div class="gear icon">
+                <a href="#"><i class="fa-solid fa-gear"></i></a>
+            </div>
+            
         </div><!--End of left sidebar-->
+        
         
         <div class="main-mid">
             <div class="flex-container">
@@ -72,14 +79,21 @@
                         <a href="#" class="slide-text"  id="url3"></a>     
                     </div>                                
                 </div>   
-
-                <div class="searchbar"></div>
+                
+                <div class="searchbar">
+                    <form action="" class="searchbar-form">
+                        <input type="text" placeholder="Search" name="search">
+                        <button href="" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>  
+                </div>
+                
             </div> <!--End of container for weather/news slideshows-->
             
             <div class="flex-container">
                 <div class="gain-lose-slideshow">
                     <div class="gainlose-flex">
-                        <div class="gainers-slideshow">
+                        <div class="green-triangle"></div>
+                        <div class="gainers-slideshow"> 
                             <div class="gain-slide fade">
                                 <p class="slide-text" id="gain-tick1"></p>
                                 <p class="slide-text" id="gain-percen1"></p>
@@ -92,7 +106,9 @@
                                 <p class="slide-text" id="gain-tick3"></p>
                                 <p class="slide-text" id="gain-percen3"></p>
                             </div>
+                            
                         </div>
+                        <div class="red-triangle"></div>
                         <div class="losers-slideshow">
                             <div class="lose-slide fade">
                                 <p class="slide-text" id="lose-tick1"></p>
@@ -105,7 +121,7 @@
                             <div class="lose-slide fade">
                                 <p class="slide-text" id="lose-tick3"></p>
                                 <p class="slide-text" id="lose-percen3"></p>
-                            </div>
+                            </div> 
                         </div>       
                     </div>
                 </div>
