@@ -4,20 +4,19 @@ showSlides();
 function showSlides() {
     let i;
     // Accuweather slides
-    let finance_slides = document.getElementsByClassName("fin_slide");
-    let weather_slides = document.getElementsByClassName("wthr_slide");
+    let weather_slides = document.getElementsByClassName("wthr-slide");
 
     // Finance slides
+    let headline_slides = document.getElementsByClassName("headline-slide");
     let gainers_slides = document.getElementsByClassName("gain-slide");
     let losers_slides = document.getElementsByClassName("lose-slide");
-
     let forex_slides = document.getElementsByClassName("forex-slide");
 
 
-    let n = finance_slides.length 
+    let n = headline_slides.length 
     
     for (i = 0; i < n; i++) {
-      finance_slides[i].style.display = "none";  
+      headline_slides[i].style.display = "none";  
       weather_slides[i].style.display = "none";
       gainers_slides[i].style.display = "none";
       losers_slides[i].style.display = "none";
@@ -27,7 +26,7 @@ function showSlides() {
 
     slideIndex++;
     if (slideIndex > n) {slideIndex = 1}    
-      finance_slides[slideIndex-1].style.display = "block";  
+      headline_slides[slideIndex-1].style.display = "block";  
       weather_slides[slideIndex-1].style.display = "block";
       gainers_slides[slideIndex-1].style.display = "block";
       losers_slides[slideIndex-1].style.display = "block";

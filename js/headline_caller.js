@@ -4,7 +4,7 @@ const f_key = finance_api_key;
 var i = Math.floor(Math.random() * 50);
 var j = Math.floor(Math.random() * 50);
 var k = Math.floor(Math.random() * 50);
-let news_list = []
+let news_list = [];
 const url = new URL ('https://www.alphavantage.co/query?function=NEWS_SENTIMENT&apikey='+f_key);
 
 fetch(url)
@@ -79,7 +79,7 @@ fetch(url)
         update_articles();
         set_elements();
     }, 1800000); 
-    
+
     
 })
 

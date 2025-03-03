@@ -12,9 +12,10 @@
     <script type="module"   src="../js/config.js"></script>
     <script type="module"   src="../js/carousel.js"></script>
     <script type="module"   src="../js/forecast_caller.js"></script>
-    <script type="module"   src="../js/finance_caller.js"></script>
+    <script type="module"   src="../js/headline_caller.js"></script>
     <script type="module"   src="../js/gainers_losers.js"></script>
-    <script type="module"   src =../js/forex.js></script>
+    <script type="module"   src="../js/forex.js"></script>
+    <script type="module"   src="../js/commodities.js"></script>
 </head>
 
 <body>
@@ -42,19 +43,19 @@
                     <p class="time"></p> 
                 </div>
                 <div class="weather-slideshow">
-                    <div class="wthr_slide fade">
+                    <div class="wthr-slide fade">
                         <p class= "slide-text" id="location1"></p>
                         <p class= "slide-text" id="headline1"></p>
                         <p class= "slide-text" id="max1"></p>
                         <p class= "slide-text" id="min1"></p>     
                     </div>
-                    <div class="wthr_slide fade">     
+                    <div class="wthr-slide fade">     
                         <p class= "slide-text" id="location2"></p>
                         <p class= "slide-text" id="headline2"></p>
                         <p class= "slide-text" id="max2"></p>
                         <p class= "slide-text" id="min2"></p>   
                     </div>
-                    <div class="wthr_slide fade">
+                    <div class="wthr-slide fade">
                         <p class= "slide-text" id="location3"></p>
                         <p class= "slide-text" id="headline3"></p>
                         <p class= "slide-text" id="max3"></p>
@@ -62,18 +63,18 @@
                     </div>
                 </div>
     
-                <div class="finance-slideshow">
-                    <div class="fin_slide fade">
+                <div class="headline-slideshow">
+                    <div class="headline-slide fade">
                         <p class= "slide-text" id="source1"></p>
                         <p class= "slide-text" id="title1"></p>  
                         <a href="#" class="slide-text"  id="url1"></a>
                     </div>
-                    <div class="fin_slide fade">  
+                    <div class="headline-slide fade">  
                         <p class= "slide-text" id="source2"></p>   
                         <p class= "slide-text" id="title2"></p>
                         <a href="#" class="slide-text"  id="url2"></a>    
                     </div> 
-                    <div class="fin_slide fade">    
+                    <div class="headline-slide fade">    
                         <p class= "slide-text" id="source3"></p>
                         <p class= "slide-text" id="title3"></p>
                         <a href="#" class="slide-text"  id="url3"></a>     
@@ -86,8 +87,7 @@
                         <button href="" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>  
                 </div>
-                
-            </div> <!--End of container for weather/news slideshows-->
+            </div> 
             
             <div class="flex-container">
                 <div class="gain-lose-slideshow">
@@ -139,7 +139,29 @@
                         <p class="slide text" id="exch-rate3"></p>
                     </div>
                 </div> 
-                <div class="tmp"></div>
+
+                <div class="commodities-container">
+                    <div class="oil">
+                        <p class="slide-text">Crude Oil</p>
+                        <p class="slide-text" id="date1"></p>
+                        <p class="slide text" id="value1"></p>
+                        <p class="slide-text" id="unit1"></p>
+                    </div>
+                    <br>
+                    <div class="gas">
+                        <p class="slide-text">Natural Gas</p>
+                        <p class="slide-text" id="date2"></p>
+                        <p class="slide text" id="value2"></p>
+                        <p class="slide-text" id="unit2"></p>
+                    </div>
+                    <br>
+                    <div class="copper">
+                        <p class="slide-text">Copper</p>
+                        <p class="slide-text" id="date3"></p>
+                        <p class="slide text" id="value3"></p>
+                        <p class="slide-text" id="unit3"></p>
+                    </div>
+                </div>    
             </div> <!--End of second row flex container-->
         </div> <!--End of midbar content -->  
     </div>

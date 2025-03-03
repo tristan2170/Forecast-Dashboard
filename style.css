@@ -103,7 +103,7 @@ body {
     border-radius: 25px;
 }
 
-.finance-slideshow {
+.headline-slideshow {
   width: 250px;
   /* max-width: 200px; */
   margin: auto;
@@ -116,7 +116,7 @@ body {
   
 }
 
-.fin_slide, .wthr_slide {
+.headline-slide, .wthr-slide {
   display: none;
   vertical-align: middle;
   border-radius: 15px;
@@ -218,7 +218,7 @@ input:focus{
 /* End of Search Bar */
 
 
-.tmp{
+.commodities-container{
   width: 250px;
   bottom: 115px;
   margin: auto;
@@ -227,9 +227,8 @@ input:focus{
   background-color: #FFFFFF;
   border-radius: 25px;  
   height: 440px;
+  text-align: center;
 }
-
-
 
 
 .slide-text{
