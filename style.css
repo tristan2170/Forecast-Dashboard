@@ -1,9 +1,16 @@
 * {box-sizing: border-box;}
 
 body {
-    font-family: Verdana, sans-serif;
+   
+    font-weight: bold;
     overflow-y: hidden;
     background-image: linear-gradient(to bottom, #E6E6FA, #d3d3d3); 
+
+    font-family: "Comfortaa", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+
     }
 
   .main-mid{
@@ -85,9 +92,12 @@ body {
     background-color: #FFFFFF;
     border-radius: 25px; 
     text-align: center;
-    /* font-family:"Trebuchet MS", Helvetica, sans-serif;  */
-    font-size: small;
-    
+    font-size: large;
+}
+
+.date, time {
+
+  padding-top: 20%;
 }
 
 
@@ -101,8 +111,15 @@ body {
     top: 20px;
     background-color: #FFFFFF;
     border-radius: 25px;
+    font-size: large;
 }
 
+.wthr-slide {
+  padding-top: 20%;
+}
+
+
+/* Headline slideshow */
 .headline-slideshow {
   width: 250px;
   /* max-width: 200px; */
@@ -123,6 +140,9 @@ body {
   padding: 20px;
   text-align: center;
 }
+/* end of headline slideshow */
+
+
 
 /* gainers-losers slideshow */
 .gain-lose-slideshow{
@@ -135,12 +155,13 @@ body {
   height: 200px;
   background-color: #FFFFFF;
   border-radius: 25px;
-  
+  font-size: large;
 }
 
 .gainlose-flex{
   display: flex;
   width: 525px;
+  padding-top: 5%;
 }
 
 .gainers-slideshow, .losers-slideshow{
@@ -181,6 +202,8 @@ body {
   background-color: #FFFFFF;
   border-radius: 25px;  
   text-align: center;
+  padding-top: 5%;
+
 }
 
 /* Search Bar */
@@ -228,14 +251,14 @@ input:focus{
   border-radius: 25px;  
   height: 440px;
   text-align: center;
+  color: black;
+  font-size: small;
 }
-
 
 .slide-text{
     color: black;
     font-size: small;
     bottom: 8px; 
-   
     top: 100px; 
 }
 

@@ -1,9 +1,9 @@
 import { finance_api_key } from "/js/config.js";
 const f_key = finance_api_key; 
 
-const oil_url = new URL ('https://www.alphavantage.co/query?function=WTI&interval=monthly&apikey='+f_key);
-const gas_url = new URL ('https://www.alphavantage.co/query?function=NATURAL_GAS&interval=monthly&apikey='+f_key);
-const copper_url = new URL ('https://www.alphavantage.co/query?function=COPPER&interval=monthly&apikey='+f_key);
+const oil_url = new URL ('https://www.alphavantage.co/query?function=WTI&interval=daily&apikey='+f_key);
+const gas_url = new URL ('https://www.alphavantage.co/query?function=NATURAL_GAS&daily=daily&apikey='+f_key);
+const copper_url = new URL ('https://www.alphavantage.co/query?function=COPPER&interval=daily&apikey='+f_key);
 
 fetch(oil_url)
 .then(response => {
